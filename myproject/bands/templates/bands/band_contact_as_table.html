@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Band Contact as table</title>
+{% endblock title %}
+
+{% block content %}
+
+  <h1>Send e-mail as table</h1>
+  <form class="form" method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock content %}
