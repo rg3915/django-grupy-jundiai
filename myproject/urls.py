@@ -28,6 +28,7 @@ urlpatterns = [
     path('contact/', v.band_contact, name='contact'),
     path('contact/as_p/', v.band_contact_as_p, name='contact_as_p'),
     path('contact/as_table/', v.band_contact_as_table, name='contact_as_table'),
+    path('contact/bootstrap/', v.band_contact_bootstrap, name='contact_bootstrap'),
     path('protected/', v.protected_view, name='protected'),
     path('accounts/login/', v.message),
     path('admin/', admin.site.urls),

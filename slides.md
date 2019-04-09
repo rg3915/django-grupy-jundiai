@@ -10,7 +10,11 @@ https://github.com/rg3915/django
 
 * Slides sem Form
 
+img dr. strange
+
 ## Apresentar
+
+1
 
 ### Admin - Login
 
@@ -36,7 +40,7 @@ login.png
 
 https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/login.html#L44-L63
 
-
+2
 
 [Building a form](https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form)
 
@@ -47,6 +51,8 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
     <input type="submit" value="OK">
 </form>
 ```
+
+3
 
 ### Admin - Auth User Add
 
@@ -140,12 +146,13 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/includes/fieldset.html
 
+4
 
 ### Admin - TabularInline
 
 admin_tabular_inline.png
 
-
+5
 
 ### Tela de Contato com forms.py
 
@@ -183,15 +190,263 @@ admin_tabular_inline.png
   </form>
 ```
 
+6
+
 ### `form.as_p`
 
-pegar codigo
+```
+<form class="form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+```
 
-### `form.as_table`
+Jinja
 
-pegar codigo
+```
+<form class="form" method="POST">
+  <input type="hidden" name="csrfmiddlewaretoken" value="zoQhKvyhfA6wJjagdIFK4ofxsJfHAEgJbBu3QyaIMaFfXRYrPeaMdPDgRlqGUyPT">
+  <p>
+    <label for="id_subject">Subject:</label>
+    <input type="text" name="subject" maxlength="100" required id="id_subject">
+  </p>
+  <p>
+    <label for="id_message">Message:</label>
+    <textarea name="message" cols="40" rows="10" required id="id_message"></textarea>
+  </p>
+  <p>
+    <label for="id_sender">Sender:</label>
+    <input type="email" name="sender" required id="id_sender">
+  </p>
+  <p>
+    <label for="id_cc_myself">Cc myself:</label>
+    <input type="checkbox" name="cc_myself" id="id_cc_myself">
+  </p>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
 
 Fazer ele pegar os valores na view
 
+Segundo https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#how-not-implement-a-form
+
+este é o jeito errado de implementar um formulário
+
+Perai... mas a doc... fala do template
+
+https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form
+
+```
+#views.py
+def my_send_email(request):
+    email = request.POST
+    import ipdb; ipdb.set_trace()
+    subject = email.get('subject')
+    message = email.get('message')
+    sender = email.get('sender')
+    cc_myself = email.get('cc_myself')
+    # enviar email
+    pass
+```
+
+7
+
+### `form.as_table`
+
+```
+<form class="form" method="POST">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+```
+
+```
+<form class="form" method="POST">
+  <input type="hidden" name="csrfmiddlewaretoken" value="jKXg5XBxZoKCH8wJxDC8DDC48ofPUZrxVXB2b0dYwYjlVGkU997aM40Nx0qOeT0H">
+
+  <tr>
+    <th>
+      <label for="id_subject">Subject:</label>
+    </th>
+    <td>
+      <input type="text" name="subject" maxlength="100" required id="id_subject">
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      <label for="id_message">Message:</label>
+    </th>
+    <td>
+      <textarea name="message" cols="40" rows="10" required id="id_message">
+      </textarea>
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      <label for="id_sender">Sender:</label>
+    </th>
+    <td>
+      <input type="email" name="sender" required id="id_sender">
+    </td>
+  </tr>
+
+  <tr>
+    <th>
+      <label for="id_cc_myself">Cc myself:</label>
+    </th>
+    <td>
+      <input type="checkbox" name="cc_myself" id="id_cc_myself">
+    </td>
+  </tr>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
 https://simpleisbetterthancomplex.com/tag/forms/
+
+8
+
+Manualmente
+
+Mostrar https://docs.djangoproject.com/en/2.2/topics/forms/#rendering-fields-manually
+
+
+
+9
+
+Creating Forms The Right Way
+
+https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#creating-forms-the-right-way
+
+Usando forms.py
+
+```
+# forms.py
+class BandContactForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
+    sender = forms.EmailField()
+    cc_myself = forms.BooleanField(required=False)
+```
+
+```
+# views.py
+def band_contact(request):
+    """ A example of form """
+    if request.method == 'POST':
+        form = BandContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # TODO: Implementar o send_email
+            return redirect('home')
+    else:
+        form = BandContactForm()
+    return render(request, 'bands/band_contact.html', {'form': form})
+```
+
+10
+
+django-widget-tweaks
+
+```
+pip install django-widget-tweaks==1.4.3
+```
+
+```
+# settings.py
+INSTALLED_APPS = [
+    ...
+    'widget_tweaks',
+```
+
+```
+# band_contact.html
+<form class="form" method="POST">
+{% csrf_token %}
+
+{% for field in form.visible_fields %}
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+    {% render_field field class="form-control" %}
+
+{% endfor %}
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+
+11
+
+Setting arguments for widgets
+
+Mostrar
+
+https://docs.djangoproject.com/en/2.2/ref/forms/widgets/#setting-arguments-for-widgets
+
+
+
+12
+
+Django Bootstrap
+
+https://github.com/zostera/django-bootstrap4
+
+```
+pip install django-bootstrap4
+```
+
+```
+# settings.py
+INSTALLED_APPS = [
+    ...
+    'bootstrap4',
+```
+
+https://getbootstrap.com/
+
+```
+# base.html
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Bootstrap core JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+```
+
+
+
+
+13
+
+Django Crispy Forms
+
+
+
+
+
+
+14
+
+inline_formset_factory
+
+
+
+
+
+
+
+
+
+14.000.605
+
+POST via Ajax
 

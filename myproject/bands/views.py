@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
@@ -24,6 +24,10 @@ def band_contact(request):
     """ A example of form """
     if request.method == 'POST':
         form = BandContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # TODO: Implementar o send_email
+            return redirect('home')
     else:
         form = BandContactForm()
     return render(request, 'bands/band_contact.html', {'form': form})
@@ -45,6 +49,14 @@ def band_contact_as_table(request):
     else:
         form = BandContactForm()
     return render(request, 'bands/band_contact_as_table.html', {'form': form})
+
+
+def band_contact_bootstrap(request):
+    if request.method == 'POST':
+        form = BandContactForm(request.POST)
+    else:
+        form = BandContactForm()
+    return render(request, 'bands/band_contact_bootstrap.html', {'form': form})
 
 
 def band_detail(request, pk):

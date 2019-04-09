@@ -9,14 +9,14 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'bands' %}">Bands</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'contact_as_p' %}">Contact as_p</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'contact_as_table' %}">Contact as_table</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="{% url 'contact' %}">Contact widget_tweaks</a>
+          <a class="dropdown-item" href="{% url 'contact_as_p' %}">Contact as_p</a>
+          <a class="dropdown-item" href="{% url 'contact_as_table' %}">Contact as_table</a>
+          <a class="dropdown-item" href="{% url 'contact_bootstrap' %}">Contact Bootstrap</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'protected' %}">Protected</a>

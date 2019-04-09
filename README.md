@@ -22,3 +22,4 @@ python manage.py migrate
 
 ## Slides
 
+Esboço dos slides em https://github.com/rg3915/django-grupy-jundiai/blob/master/slides.md
