@@ -59,6 +59,14 @@ def band_contact_bootstrap(request):
     return render(request, 'bands/band_contact_bootstrap.html', {'form': form})
 
 
+def band_contact_crispy(request):
+    if request.method == 'POST':
+        form = BandContactForm(request.POST)
+    else:
+        form = BandContactForm()
+    return render(request, 'bands/band_contact_crispy.html', {'form': form})
+
+
 def band_detail(request, pk):
     """ A view of all members by bands. """
     band = Band.objects.get(pk=pk)

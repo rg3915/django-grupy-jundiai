@@ -422,31 +422,135 @@ https://getbootstrap.com/
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 ```
 
+```
+# band_contact_bootstrap.html
+{% extends "base.html" %}
+{% load bootstrap4 %}
 
+{% block content %}
+
+  <form class="form" method="POST">
+    {% csrf_token %}
+
+    {% bootstrap_form form %}
+
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}
+```
 
 
 13
 
 Django Crispy Forms
 
+https://django-crispy-forms.readthedocs.io/en/latest/
 
 
+```
+pip install django-crispy-forms
+```
 
+https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html
 
+```
+# settings.py
+INSTALLED_APPS = [
+    ...
+    'crispy_forms',
+    ...
+]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+```
+
+```
+# band_contact_crispy.html
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+  <form class="form" method="POST">
+    {% csrf_token %}
+
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock content %}
+```
 
 14
 
-inline_formset_factory
+CreateView
+
+https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/CreateView/
+
+```
+class BandCreate(CreateView):
+    model = Band
+    form_class = BandForm
+    template_name = 'bands/band_form.html'
+    success_url = reverse_lazy('bands')
+```
+
+
+15
+
+UpdateView
+
+https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/UpdateView/
+
+
+16
+
+Upload File
+
+https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
+
+implementar
+    one file
+    multiple files
+
+
+17 - inline_formset_factory
+
+    pegar links + github
+
+18 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
+
+    registration https://i.stack.imgur.com/SgFlV.jpg
+    login https://discuss.hellowebapp.com/uploads/default/original/1X/262249cf7d76163b5573bd325b3bd9674948ca8e.png
+    reset password https://hellowebbooks.com/static/images/blog/2016/3/28/password-change-form.png
+
+Implementar, se der tempo
 
 
 
 
+19 - POST via Ajax
+
+veganista/arrayToTable.js
+
+https://gist.github.com/veganista/6413299
+
+1. Requer jQuery
+2. Criar uma tabela com arrayToTable.js
+3. Alimentar essa tabela com dados vindos do banco (views.py)
+4. Criar formulário num Modal
+5. Criar uma url para fazer o Post
+6. Criar View que salva os dados
+7. Fazer o Post via Ajax
+8. Retornar os novos dados na tabela
 
 
 
+20 - POST com VueJS
 
-
-14.000.605
-
-POST via Ajax
+    Implementar
 
