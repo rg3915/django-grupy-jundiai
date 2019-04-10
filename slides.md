@@ -12,11 +12,18 @@ https://github.com/rg3915/django
 
 img dr. strange
 
+## Como o Django funciona?
+
+https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv1.png
+
+https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv2.png
+
+https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png
+
+
 ## Apresentar
 
-1
-
-### Admin - Login
+### 1 - Admin - Login
 
 login.png
 
@@ -40,9 +47,9 @@ login.png
 
 https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/login.html#L44-L63
 
-2
 
-[Building a form](https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form)
+
+### 2 - [Building a form](https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form)
 
 ```
 <form action="/your-name/" method="post">
@@ -52,9 +59,8 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 </form>
 ```
 
-3
 
-### Admin - Auth User Add
+### 3 - Admin - Auth User Add
 
 auth_user_add.png
 
@@ -106,7 +112,7 @@ auth_user_add.png
 </form>
 ```
 
-Clear code
+Clean code
 
 ```
 <form action="" method="post" id="user_form" novalidate>
@@ -146,15 +152,16 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/includes/fieldset.html
 
-4
 
-### Admin - TabularInline
+
+
+### 4 - Admin - TabularInline
 
 admin_tabular_inline.png
 
-5
 
-### Tela de Contato com forms.py
+
+### 5 - Tela de Contato com forms.py
 
     * BandContactForm
 
@@ -190,9 +197,8 @@ admin_tabular_inline.png
   </form>
 ```
 
-6
 
-### `form.as_p`
+### 6 - `form.as_p`
 
 ```
 <form class="form" method="POST">
@@ -250,9 +256,64 @@ def my_send_email(request):
     pass
 ```
 
-7
 
-### `form.as_table`
+### 7 - Live Code completo
+
+https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png
+
+1. Criar url em urls.py
+2. Criar função em views.py
+3. Criar formulário em forms.py
+4. Criar template
+
+```
+# urls.py
+path('band/create/', v.band_create, name='band_create'),
+```
+
+```
+# views.py
+def band_create(request):
+    ''' https://coderwall.com/p/o8tida/better-way-to-initialize-django-forms '''
+    form = BandForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        # Process the data in form.cleaned_data
+        form.save()
+        return HttpResponseRedirect(resolve_url('bands'))
+    return render(request, 'bands/band_create.html', {'form': form})
+```
+
+```
+# forms.py
+class BandForm(forms.ModelForm):
+
+    class Meta:
+        model = Band
+        fields = '__all__'
+```
+
+```
+# band_create.html
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Band Create</title>
+{% endblock title %}
+
+{% block content %}
+
+  <h1>Band Create</h1>
+  <form class="form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock content %}
+```
+
+
+### 8 - `form.as_table`
 
 ```
 <form class="form" method="POST">
@@ -309,17 +370,15 @@ def my_send_email(request):
 
 https://simpleisbetterthancomplex.com/tag/forms/
 
-8
 
-Manualmente
+
+### 9 - Manualmente
 
 Mostrar https://docs.djangoproject.com/en/2.2/topics/forms/#rendering-fields-manually
 
 
 
-9
-
-Creating Forms The Right Way
+### 10 - Creating Forms The Right Way
 
 https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#creating-forms-the-right-way
 
@@ -349,9 +408,8 @@ def band_contact(request):
     return render(request, 'bands/band_contact.html', {'form': form})
 ```
 
-10
 
-django-widget-tweaks
+### 11 - django-widget-tweaks
 
 ```
 pip install django-widget-tweaks==1.4.3
@@ -380,9 +438,7 @@ INSTALLED_APPS = [
 </form>
 ```
 
-11
-
-Setting arguments for widgets
+### 12 - Setting arguments for widgets
 
 Mostrar
 
@@ -390,9 +446,7 @@ https://docs.djangoproject.com/en/2.2/ref/forms/widgets/#setting-arguments-for-w
 
 
 
-12
-
-Django Bootstrap
+### 13 - Django Bootstrap
 
 https://github.com/zostera/django-bootstrap4
 
@@ -443,9 +497,7 @@ https://getbootstrap.com/
 ```
 
 
-13
-
-Django Crispy Forms
+### 14 - Django Crispy Forms
 
 https://django-crispy-forms.readthedocs.io/en/latest/
 
@@ -485,9 +537,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 {% endblock content %}
 ```
 
-14
-
-CreateView
+### 15 - CreateView
 
 https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/CreateView/
 
@@ -500,16 +550,12 @@ class BandCreate(CreateView):
 ```
 
 
-15
-
-UpdateView
+### 16 - UpdateView
 
 https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/UpdateView/
 
 
-16
-
-Upload File
+### 17 - Upload File
 
 https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
 
@@ -518,11 +564,13 @@ implementar
     multiple files
 
 
-17 - inline_formset_factory
+### 18 - inline_formset_factory
 
     pegar links + github
 
-18 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
+
+
+### 19 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
 
     registration https://i.stack.imgur.com/SgFlV.jpg
     login https://discuss.hellowebapp.com/uploads/default/original/1X/262249cf7d76163b5573bd325b3bd9674948ca8e.png
@@ -533,7 +581,7 @@ Implementar, se der tempo
 
 
 
-19 - POST via Ajax
+### 20 - POST via Ajax
 
 veganista/arrayToTable.js
 
@@ -550,7 +598,7 @@ https://gist.github.com/veganista/6413299
 
 
 
-20 - POST com VueJS
+### 21 - POST com VueJS
 
     Implementar
 

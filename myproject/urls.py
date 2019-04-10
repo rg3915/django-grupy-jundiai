@@ -24,6 +24,7 @@ urlpatterns = [
     path('bands/', v.band_list, name='bands'),
     path('bands/<int:pk>/', v.band_detail, name='band_detail'),
     path('bandform/', v.BandCreate.as_view(), name='band_form'),
+    path('bands/create/', v.band_create, name='band_create'),
     path('memberform/', v.MemberCreate.as_view(), name='member_form'),
     path('contact/', v.band_contact, name='contact'),
     path('contact/as_p/', v.band_contact_as_p, name='contact_as_p'),

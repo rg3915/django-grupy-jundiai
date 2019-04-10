@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, resolve_url
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
@@ -73,6 +73,16 @@ def band_detail(request, pk):
     members = Member.objects.all().filter(band=band)
     context = {'members': members, 'band': band}
     return render(request, 'bands/band_detail.html', context)
+
+
+def band_create(request):
+    ''' https://coderwall.com/p/o8tida/better-way-to-initialize-django-forms '''
+    form = BandForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        # Process the data in form.cleaned_data
+        form.save()
+        return HttpResponseRedirect(resolve_url('bands'))
+    return render(request, 'bands/band_create.html', {'form': form})
 
 
 class BandCreate(CreateView):
