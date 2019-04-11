@@ -1,8 +1,10 @@
-from django.shortcuts import render, redirect, resolve_url
-from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView
+from django.core import serializers
+from django.http import HttpResponse, HttpResponseRedirect
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, resolve_url
 from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
 from .models import Band, Member
 from .forms import BandContactForm, BandForm, MemberForm
 
@@ -90,6 +92,41 @@ class BandCreate(CreateView):
     form_class = BandForm
     template_name = 'bands/band_form.html'
     success_url = reverse_lazy('bands')
+
+
+# def members(request):
+#     return render(request, 'bands/member_list.html')
+
+
+class MemberList(ListView):
+    model = Member
+    # template_name =
+    # context_object_name =
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(MemberList, self).get_context_data(**kwargs)
+        context['form'] = MemberForm()
+        return context
+
+
+def members_add_ajax(request):
+    data = request.POST
+    # import ipdb; ipdb.set_trace()
+    name = data.get('name')
+    instrument = data.get('instrument')
+    band_pk = data.get('band')
+    band = Band.objects.get(pk=band_pk)
+
+    member = Member.objects.create(name=name, instrument=instrument, band=band)
+    data = [member.to_dict_json()]
+    return JsonResponse({'data': data})
+
+
+def members_json(request):
+    members = Member.objects.all()
+    data = [item.to_dict_json() for item in members]
+    return JsonResponse({'data': data})
 
 
 class MemberCreate(CreateView):

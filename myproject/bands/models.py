@@ -53,3 +53,11 @@ class Member(models.Model):
 
     def __str__(self):
         return self.name
+
+    def to_dict_json(self):
+        return {
+            'pk': self.pk,
+            'name': self.name,
+            'instrument': self.get_instrument_display(),
+            'band': self.band.name,
+        }

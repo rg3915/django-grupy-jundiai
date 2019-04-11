@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}
+    <title>Member List</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="float-left">
+      <h1>All Members</h1>
+    </div>
+
+    <div class="float-right">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Add
+      </button>
+    </div>
+
+    <table id="table" class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Instrument</th>
+          <th>Band</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for object in object_list %}
+          <tr>
+            <td>{{ object.name }}</td>
+            <td>{{ object.get_instrument_display }}</td>
+            <td>{{ object.band }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Member</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <!-- Formulario -->
+      <form action="" method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            {{ form.name.label }}
+            {% render_field form.name class="form-control" %}
+          </div>
+
+          <div class="form-group">
+            {{ form.instrument.label }}
+            {% render_field form.instrument class="form-control" %}
+          </div>
+
+          <div class="form-group">
+            {{ form.band.label }}
+            {% render_field form.band class="form-control" %}
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+<script>
+  // django-ajax-setup.js
+
+  // set up jQuery ajax object to always send CSRF token in headers
+  // https://docs.djangoproject.com/en/2.2/ref/csrf/#ajax
+  var getCookie = function (name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  var csrfSafeMethod = function (method) {
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+
+  $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+      }
+    }
+  });
+</script>
+
+<script>
+  $('#save').on('click', function(e) {
+      let url = '/members/add/ajax/'
+      let postData = $('form').serialize();
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: postData,
+        success: function(response) {
+          var template = '<tr>' +
+              '<td>' + response.data[0].name + '</td>' +
+              '<td>' + response.data[0].instrument + '</td>' +
+              '<td>' + response.data[0].band + '</td>' +
+              '</tr>'
+
+          $('#table tbody').append(template)
+        },
+        error: function(xhr) {
+          console.log('Erro');
+        },
+        complete: function() {
+          // Fecha modal
+          $('#myModal').modal('hide');
+          // Limpa os campos
+          $('#id_name').val('');
+          $('#id_instrument').val('');
+          $('#id_band').val('');
+        }
+      });
+    e.preventDefault();
+  });
+</script>
+
+{% endblock js %}
