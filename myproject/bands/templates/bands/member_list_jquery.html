@@ -5,7 +5,9 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>All Members</h1>
+    <div class="float-left">
+      <h1>All Members</h1>
+    </div>
 
     <div id="my-table"></div>
 
@@ -13,7 +15,7 @@
 
 {% block js %}
 
-  <script>
+<script>
 
     var arrayToTable = function (data, options) {
 
@@ -76,56 +78,35 @@
         return table;
     };
 
-  </script>
+</script>
 
-  <script>
+<script>
 
-    // var data = [
-    //   ['Name', 'Age', 'Email'],
-    //   ['John Doe', '27', 'john@doe.com'],
-    //   ['Jane Doe', '29', 'jane@doe.com']
-    // ];
     var data = [
       ['Name', 'Instrument', 'Band']
     ]
-    console.log(typeof data);
-    data = Object.values(data);
-    console.log(data);
-
-    var table
 
     let url = "/members/json/"
     $.ajax({
       url: url,
       success: function(response) {
-        // console.log(response.data);
         $.each(response.data, function(index, val) {
-           // console.log(val);
-           // name, instrument, band
            var d = [val.name, val.instrument, val.band]
            data.push(d)
         });
 
-        table = arrayToTable(data, {
+        var table = arrayToTable(data, {
           thead: true,
           attrs: {class: 'table'}
         })
+
+        $('#my-table').append(table);
+
       },
       error: function(xhr) {
         console.log("Erro ao carregar os dados.");
       }
-    })
+    });
+</script>
 
-    console.log('Aqui');
-    // console.log(Object.values(data);
-    console.log(data);
-
-    // var table = arrayToTable(data, {
-    //   thead: true,
-    //   attrs: {class: 'table'}
-    // })
-
-    $('#my-table').append(table);
-
-  </script>
 {% endblock js %}
