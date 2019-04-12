@@ -978,5 +978,136 @@ complete: function() {
 
 ### 21 - POST com VueJS
 
-    Implementar
+1. Requer VueJS + Axios
+2. Criar um template com função
+3. Usar View `members_add_ajax`
+4. Fazer o Post via Axios
+
+---
+
+1. Requer VueJS + Axios
+
+```
+<!-- Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- Axios -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+```
+
+---
+
+2. Criar um template com função
+
+```python
+# views.py
+def members_vue(request):
+    return render(request, 'bands/members_vue.html')
+```
+
+```python
+# urls.py
+path('members_vue/', v.members_vue, name='members_vue'),
+```
+
+---
+
+O template é members_vue.html
+
+```html
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Members Vue</title>
+{% endblock title %}
+
+{% block content %}
+
+<!-- Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- Axios -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+<div id="app">
+
+  <div class="float-left">
+    <h1>Members with Vue</h1>
+  </div>
+
+  <table id="table" class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Instrument</th>
+        <th>Band</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="member in members" :key="member.id">
+        <td>${ member.name }</td>
+        <td>${ member.instrument }</td>
+        <td>${ member.band }</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock content %}
+```
+
+
+
+---
+
+3. Usar View `members_add_ajax`
+
+---
+
+4. Fazer o Post via Axios
+
+```js
+<script>
+  axios.defaults.xsrfHeaderName = "X-CSRFToken";
+  axios.defaults.xsrfCookieName = "csrftoken";
+  var app = new Vue({
+    el: '#app',
+    delimiters: ['${', '}'],
+    data: {
+      members: [],
+      name: '',
+      instrument: '',
+      band: '',
+      url: '/members/json/',
+      url_add: '/members/add/ajax/'
+    },
+    created () {
+      axios.get(this.url)
+      .then(result => {
+        this.members = result.data.data
+      })
+    },
+    methods: {
+      add () {
+        let bodyFormData = new FormData()
+        bodyFormData.append('name', this.name)
+        bodyFormData.append('instrument', this.instrument)
+        bodyFormData.append('band', this.band)
+        axios.post(this.url_add, bodyFormData)
+        .then(response => {
+          this.members.push(
+            {
+              name: response.data.data[0].name,
+              instrument: response.data.data[0].instrument,
+              band: response.data.data[0].band,
+            }
+          )
+          this.name = ''
+          this.instrument = ''
+          this.band = ''
+        })
+      }
+    }
+  });
+</script>
+```
 

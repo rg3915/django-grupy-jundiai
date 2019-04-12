@@ -110,6 +110,12 @@ class MemberList(ListView):
         return context
 
 
+def members_vue(request):
+    form = MemberForm()
+    context = {'form': form}
+    return render(request, 'bands/members_vue.html', context)
+
+
 def members_add_ajax(request):
     data = request.POST
     # import ipdb; ipdb.set_trace()
