@@ -212,7 +212,15 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 ### 5 - Tela de Contato com forms.py
 
-    * BandContactForm
+    * [BandContactForm](https://github.com/rg3915/django-grupy-jundiai/blob/master/myproject/bands/forms.py#L5-L9)
+
+```python
+class BandContactForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
+    sender = forms.EmailField()
+    cc_myself = forms.BooleanField(required=False)
+```
 
 ```html
 {% load widget_tweaks %}
@@ -245,6 +253,8 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 ```
+
+![band_contact](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/band_contact.png)
 
 
 ### 6 - `form.as_p`
