@@ -690,11 +690,11 @@ implementar
 
 ### 19 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
 
-![registration](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/SgFlV.jpg)
+![registration](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/SgFlV.jpg)
 
-![login](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/262249cf7d76163b5573bd325b3bd9674948ca8e.png)
+![login](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/262249cf7d76163b5573bd325b3bd9674948ca8e.png)
 
-![reset password](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/password-change-form.png)
+![reset password](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/password-change-form.png)
 
 Implementar, mostrar rodando
 
