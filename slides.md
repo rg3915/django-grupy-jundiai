@@ -1065,7 +1065,7 @@ O template é members_vue.html
 
 4. Fazer o Post via Axios
 
-```js
+```vue
 <script>
   axios.defaults.xsrfHeaderName = "X-CSRFToken";
   axios.defaults.xsrfCookieName = "csrftoken";
