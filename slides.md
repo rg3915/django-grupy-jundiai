@@ -690,11 +690,13 @@ implementar
 
 ### 19 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
 
-    registration https://i.stack.imgur.com/SgFlV.jpg
-    login https://discuss.hellowebapp.com/uploads/default/original/1X/262249cf7d76163b5573bd325b3bd9674948ca8e.png
-    reset password https://hellowebbooks.com/static/images/blog/2016/3/28/password-change-form.png
+![registration](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/SgFlV.jpg)
 
-Implementar, se der tempo
+![login](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/262249cf7d76163b5573bd325b3bd9674948ca8e.png)
+
+![reset password](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/password-change-form.png)
+
+Implementar, mostrar rodando
 
 
 ---
