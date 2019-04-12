@@ -2,7 +2,11 @@
 
 Palestra apresentada no Grupy Jundiai em Abril de 2019.
 
+---
+
 Django foi lançado em 2005 por Lawrence Journal-World
+
+---
 
 Site não...
 
@@ -29,28 +33,36 @@ https://github.com/rg3915/django-grupy-jundiai/blob/master/slides.md
 
 ---
 
-- Colocar o código do github com highlight por linguagem
-
 2013
 
-Dr. Strange sem treinamento
+---
+
 
 https://github.com/rg3915/django
 
 * Django==1.6.6
 
+---
+
 * Slides sem Form
 
-img dr. strange
+img Dr. Strange sem treinamento
+
+---
 
 ## Como o Django funciona?
 
-https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv1.png
+![mtv1](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv1.png)
+
+---
 
 https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv2.png
 
+---
+
 https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png
 
+---
 
 ## Apresentar
 
