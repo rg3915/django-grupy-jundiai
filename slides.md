@@ -2,7 +2,38 @@
 
 Palestra apresentada no Grupy Jundiai em Abril de 2019.
 
-Era uma vez 2013...
+Django foi lançado em 2005 por Lawrence Journal-World
+
+Site não...
+
+Sistemas online
+
+- acesso ao banco de dados
+- podemos criar api e acessar de várias formas diferentes, Android por exemplo.
+
+
+---
+
+
+Esboço Tutorial para
+
+pythonclub.com.br
+
+https://github.com/rg3915/django2-pythonclub/blob/master/esboco.md
+
+---
+
+Slides
+
+https://github.com/rg3915/django-grupy-jundiai/blob/master/slides.md
+
+---
+
+- Colocar o código do github com highlight por linguagem
+
+2013
+
+Dr. Strange sem treinamento
 
 https://github.com/rg3915/django
 
@@ -27,7 +58,7 @@ https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagr
 
 login.png
 
-```
+```html
 <form action="/admin/login/?next=/admin/" method="post" id="login-form"><input type="hidden" name="csrfmiddlewaretoken" value="X9I8a87GjMYBWo5OBwHc5VjkIuOdkgjDZBIOCQnTFrxov9orGE7jyvxlDGZQTy1d">
   <div class="form-row">
 
@@ -51,7 +82,7 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 ### 2 - [Building a form](https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form)
 
-```
+```html
 <form action="/your-name/" method="post">
     <label for="your_name">Your name: </label>
     <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
@@ -64,7 +95,7 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 auth_user_add.png
 
-```
+```html
 <form action="" method="post" id="user_form" novalidate>
     <input type="hidden" name="csrfmiddlewaretoken" value="3QsChOoIE6kzzQe9kEzoySfJ4fhjCAF0MglMTnnNWUAYqLij0O6qGTqieYQewK5n">
     <p>Primeiro, informe um nome de usuário e senha. Depois você será capaz de editar mais opções do usuário.</p>
@@ -114,7 +145,7 @@ auth_user_add.png
 
 Clean code
 
-```
+```html
 <form action="" method="post" id="user_form" novalidate>
     <input type="hidden" name="csrfmiddlewaretoken">
     <p></p>
@@ -165,7 +196,7 @@ admin_tabular_inline.png
 
     * BandContactForm
 
-```
+```html
 {% load widget_tweaks %}
 
   <style>
@@ -200,7 +231,7 @@ admin_tabular_inline.png
 
 ### 6 - `form.as_p`
 
-```
+```html
 <form class="form" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
@@ -210,7 +241,11 @@ admin_tabular_inline.png
 
 Jinja
 
-```
+http://jinja.pocoo.org/
+
+
+
+```html
 <form class="form" method="POST">
   <input type="hidden" name="csrfmiddlewaretoken" value="zoQhKvyhfA6wJjagdIFK4ofxsJfHAEgJbBu3QyaIMaFfXRYrPeaMdPDgRlqGUyPT">
   <p>
@@ -243,7 +278,7 @@ Perai... mas a doc... fala do template
 
 https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form
 
-```
+```python
 #views.py
 def my_send_email(request):
     email = request.POST
@@ -271,7 +306,7 @@ https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagr
 path('band/create/', v.band_create, name='band_create'),
 ```
 
-```
+```python
 # views.py
 def band_create(request):
     ''' https://coderwall.com/p/o8tida/better-way-to-initialize-django-forms '''
@@ -283,7 +318,7 @@ def band_create(request):
     return render(request, 'bands/band_create.html', {'form': form})
 ```
 
-```
+```python
 # forms.py
 class BandForm(forms.ModelForm):
 
@@ -292,7 +327,7 @@ class BandForm(forms.ModelForm):
         fields = '__all__'
 ```
 
-```
+```html
 # band_create.html
 {% extends "base.html" %}
 
@@ -315,7 +350,7 @@ class BandForm(forms.ModelForm):
 
 ### 8 - `form.as_table`
 
-```
+```html
 <form class="form" method="POST">
     {% csrf_token %}
     {{ form.as_table }}
@@ -323,7 +358,7 @@ class BandForm(forms.ModelForm):
   </form>
 ```
 
-```
+```html
 <form class="form" method="POST">
   <input type="hidden" name="csrfmiddlewaretoken" value="jKXg5XBxZoKCH8wJxDC8DDC48ofPUZrxVXB2b0dYwYjlVGkU997aM40Nx0qOeT0H">
 
@@ -384,7 +419,7 @@ https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-gui
 
 Usando forms.py
 
-```
+```python
 # forms.py
 class BandContactForm(forms.Form):
     subject = forms.CharField(max_length=100)
@@ -393,7 +428,7 @@ class BandContactForm(forms.Form):
     cc_myself = forms.BooleanField(required=False)
 ```
 
-```
+```python
 # views.py
 def band_contact(request):
     """ A example of form """
@@ -415,14 +450,14 @@ def band_contact(request):
 pip install django-widget-tweaks==1.4.3
 ```
 
-```
+```python
 # settings.py
 INSTALLED_APPS = [
     ...
     'widget_tweaks',
 ```
 
-```
+```html
 # band_contact.html
 <form class="form" method="POST">
 {% csrf_token %}
@@ -454,7 +489,7 @@ https://github.com/zostera/django-bootstrap4
 pip install django-bootstrap4
 ```
 
-```
+```python
 # settings.py
 INSTALLED_APPS = [
     ...
@@ -463,7 +498,7 @@ INSTALLED_APPS = [
 
 https://getbootstrap.com/
 
-```
+```html
 # base.html
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -476,7 +511,7 @@ https://getbootstrap.com/
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 ```
 
-```
+```html
 # band_contact_bootstrap.html
 {% extends "base.html" %}
 {% load bootstrap4 %}
@@ -508,7 +543,7 @@ pip install django-crispy-forms
 
 https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html
 
-```
+```python
 # settings.py
 INSTALLED_APPS = [
     ...
@@ -519,7 +554,7 @@ INSTALLED_APPS = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ```
 
-```
+```html
 # band_contact_crispy.html
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
@@ -541,7 +576,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/CreateView/
 
-```
+```python
 class BandCreate(CreateView):
     model = Band
     form_class = BandForm
@@ -599,7 +634,7 @@ https://gist.github.com/veganista/6413299
 
 1. Requer jQuery
 
-```
+```html
 # base.html
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 ```
@@ -610,7 +645,7 @@ https://gist.github.com/veganista/6413299
 2.2 url 
 2.3 views
 
-```
+```python
 # views.py
 class MemberList(ListView):
     model = Member
@@ -621,7 +656,7 @@ class MemberList(ListView):
 
 2.4 member_list
 
-```
+```html
 # member_list.html
 {% extends "base.html" %}
 
@@ -683,7 +718,7 @@ AQUI
 
 1. Requer jQuery
 
-```
+```html
 # base.html
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 ```
@@ -696,14 +731,14 @@ AQUI
 
 2.1. url
 
-```
+```python
 # urls.py
 path('members/', v.MemberList.as_view(), name='members'),
 ```
 
 2.2. view
 
-```
+```python
 # views.py
 class MemberList(ListView):
     model = Member
@@ -714,7 +749,7 @@ class MemberList(ListView):
 
 2.3. template
 
-```
+```html
 # member_list.html
 {% extends "base.html" %}
 
@@ -750,7 +785,7 @@ class MemberList(ListView):
 
 3. Criar formulário com Modal
 
-```
+```html
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -790,7 +825,7 @@ class MemberList(ListView):
 
 4. Criar uma url para fazer o Post
 
-```
+```python
 # urls.py
 path('members/add/ajax', v.members_add_ajax, name='members_add_ajax'),
 ```
@@ -805,7 +840,7 @@ Requer `django-ajax-setup.js`
 
 https://docs.djangoproject.com/en/2.2/ref/csrf/#ajax
 
-```
+```js
 // set up jQuery ajax object to always send CSRF token in headers
 // https://docs.djangoproject.com/en/2.2/ref/csrf/#ajax
 var getCookie = function (name) {
@@ -836,7 +871,7 @@ $.ajaxSetup({
 });
 ```
 
-```
+```js
 <script>
   $('#save').on('click', function(e) {
       let url = '/members/add/ajax/'
@@ -863,7 +898,7 @@ $.ajaxSetup({
 
 7. Retornar os novos dados na tabela
 
-```
+```js
 success: function(response) {
   var template = '<tr>' +
       '<td>' + response.data[0].name + '</td>' +
