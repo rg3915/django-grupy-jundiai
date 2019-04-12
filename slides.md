@@ -306,6 +306,12 @@ http://jinja.pocoo.org/
 
 ---
 
+Live Code
+
+img dr. strange primeiro teste
+
+---
+
 Live Code - Fazer ele pegar os valores na view
 
 Segundo https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#how-not-implement-a-form
@@ -336,7 +342,7 @@ def my_send_email(request):
 
 ### 7 - Live Code completo
 
-https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png
+![diagrama](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png)
 
 1. Criar url em urls.py
 2. Criar função em views.py
