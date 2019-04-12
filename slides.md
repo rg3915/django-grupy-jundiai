@@ -709,7 +709,7 @@ img Dr. Strange kickout
 
 ---
 
-![dr_strange_failure]()
+![dr_strange_failure](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/dr_strange_failure.gif)
 
 ### 20 - POST via Ajax (Live Code)
 
