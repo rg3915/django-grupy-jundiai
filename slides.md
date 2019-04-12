@@ -37,10 +37,9 @@ https://github.com/rg3915/django-grupy-jundiai/blob/master/slides.md
 
 ---
 
+* Django==1.6.6
 
 https://github.com/rg3915/django
-
-* Django==1.6.6
 
 ---
 
@@ -50,17 +49,24 @@ img Dr. Strange sem treinamento
 
 ---
 
+Você leu a documentação?
+
+img kickout
+
+
+---
+
 ## Como o Django funciona?
 
 ![mtv1](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv1.png)
 
 ---
 
-https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv2.png
+![mtv2](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/mtv2.png)
 
 ---
 
-https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png
+![diagrama](https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagrama.png)
 
 ---
 
