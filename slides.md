@@ -709,6 +709,7 @@ img Dr. Strange kickout
 
 ---
 
+![dr_strange_failure]()
 
 ### 20 - POST via Ajax (Live Code)
 
