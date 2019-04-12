@@ -96,7 +96,7 @@ img kickout
 
 https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/login.html#L44-L63
 
-
+---
 
 ### 2 - [Building a form](https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form)
 
@@ -108,6 +108,7 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 </form>
 ```
 
+---
 
 ### 3 - Admin - Auth User Add
 
@@ -161,6 +162,8 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 </form>
 ```
 
+---
+
 Clean code
 
 ```html
@@ -202,17 +205,18 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 https://github.com/django/django/blob/master/django/contrib/admin/templates/admin/includes/fieldset.html
 
 
-
+---
 
 ### 4 - Admin - TabularInline
 
 ![admin_tabular_inline.png](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/admin_tabular_inline.png)
 
+---
 
 
 ### 5 - Tela de Contato com forms.py
 
-    * [BandContactForm](https://github.com/rg3915/django-grupy-jundiai/blob/master/myproject/bands/forms.py#L5-L9)
+[BandContactForm](https://github.com/rg3915/django-grupy-jundiai/blob/master/myproject/bands/forms.py#L5-L9)
 
 ```python
 class BandContactForm(forms.Form):
@@ -256,6 +260,7 @@ class BandContactForm(forms.Form):
 
 ![band_contact](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/band_contact.png)
 
+---
 
 ### 6 - `form.as_p`
 
@@ -267,10 +272,13 @@ class BandContactForm(forms.Form):
   </form>
 ```
 
+---
+
 Jinja
 
 http://jinja.pocoo.org/
 
+---
 
 
 ```html
@@ -296,15 +304,19 @@ http://jinja.pocoo.org/
 </form>
 ```
 
-Fazer ele pegar os valores na view
+---
+
+Live Code - Fazer ele pegar os valores na view
 
 Segundo https://simpleisbetterthancomplex.com/series/2017/09/18/a-complete-beginners-guide-to-django-part-3.html#how-not-implement-a-form
 
-este é o jeito errado de implementar um formulário
+este é o jeito **errado** de implementar um formulário
 
 Perai... mas a doc... fala do template
 
 https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form
+
+---
 
 ```python
 #views.py
@@ -319,6 +331,8 @@ def my_send_email(request):
     pass
 ```
 
+---
+
 
 ### 7 - Live Code completo
 
@@ -329,10 +343,18 @@ https://raw.githubusercontent.com/rg3915/tutoriais/master/django-basic/img/diagr
 3. Criar formulário em forms.py
 4. Criar template
 
+---
+
+1. Criar url em urls.py
+
 ```
 # urls.py
 path('band/create/', v.band_create, name='band_create'),
 ```
+
+---
+
+2. Criar função em views.py
 
 ```python
 # views.py
@@ -345,6 +367,9 @@ def band_create(request):
         return HttpResponseRedirect(resolve_url('bands'))
     return render(request, 'bands/band_create.html', {'form': form})
 ```
+---
+
+3. Criar formulário em forms.py
 
 ```python
 # forms.py
@@ -354,6 +379,10 @@ class BandForm(forms.ModelForm):
         model = Band
         fields = '__all__'
 ```
+
+---
+
+4. Criar template
 
 ```html
 # band_create.html
@@ -375,6 +404,7 @@ class BandForm(forms.ModelForm):
 {% endblock content %}
 ```
 
+---
 
 ### 8 - `form.as_table`
 
@@ -431,14 +461,20 @@ class BandForm(forms.ModelForm):
 </form>
 ```
 
+---
+
+Seguir
+
 https://simpleisbetterthancomplex.com/tag/forms/
 
+---
 
 
 ### 9 - Manualmente
 
-Mostrar https://docs.djangoproject.com/en/2.2/topics/forms/#rendering-fields-manually
+*Mostrar* https://docs.djangoproject.com/en/2.2/topics/forms/#rendering-fields-manually
 
+---
 
 
 ### 10 - Creating Forms The Right Way
@@ -471,6 +507,7 @@ def band_contact(request):
     return render(request, 'bands/band_contact.html', {'form': form})
 ```
 
+---
 
 ### 11 - django-widget-tweaks
 
@@ -501,13 +538,16 @@ INSTALLED_APPS = [
 </form>
 ```
 
+---
+
+
 ### 12 - Setting arguments for widgets
 
 Mostrar
 
 https://docs.djangoproject.com/en/2.2/ref/forms/widgets/#setting-arguments-for-widgets
 
-
+---
 
 ### 13 - Django Bootstrap
 
@@ -559,6 +599,7 @@ https://getbootstrap.com/
 {% endblock content %}
 ```
 
+---
 
 ### 14 - Django Crispy Forms
 
@@ -600,6 +641,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 {% endblock content %}
 ```
 
+---
+
+
 ### 15 - CreateView
 
 https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/CreateView/
@@ -612,11 +656,15 @@ class BandCreate(CreateView):
     success_url = reverse_lazy('bands')
 ```
 
+---
+
 
 ### 16 - UpdateView
 
 https://ccbv.co.uk/projects/Django/2.1/django.views.generic.edit/UpdateView/
 
+
+---
 
 ### 17 - Upload File
 
@@ -626,12 +674,13 @@ implementar
     one file
     multiple files
 
+---
 
 ### 18 - inline_formset_factory
 
     pegar links + github
 
-
+---
 
 ### 19 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
 
@@ -642,7 +691,7 @@ implementar
 Implementar, se der tempo
 
 
-
+---
 
 ### 20 - POST via Ajax - FAIL
 
@@ -728,8 +777,9 @@ class MemberList(ListView):
 
 3. Alimentar essa tabela com dados vindos do banco (views.py)
 
-AQUI
+...
 
+---
 
 
 ### 20 - POST via Ajax
@@ -751,11 +801,15 @@ AQUI
 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
 ```
 
+---
+
 2. Criar um template com ListView
 
-2.1. url
-2.2. view
-2.3. template
+* 2.1. url
+* 2.2. view
+* 2.3. template
+
+---
 
 2.1. url
 
@@ -763,6 +817,9 @@ AQUI
 # urls.py
 path('members/', v.MemberList.as_view(), name='members'),
 ```
+
+---
+
 
 2.2. view
 
@@ -774,6 +831,9 @@ class MemberList(ListView):
     # context_object_name =
     paginate_by = 10
 ```
+
+
+---
 
 2.3. template
 
@@ -809,6 +869,9 @@ class MemberList(ListView):
 
 {% endblock content %}
 ```
+
+
+---
 
 
 3. Criar formulário com Modal
@@ -851,6 +914,9 @@ class MemberList(ListView):
 </div>
 ```
 
+---
+
+
 4. Criar uma url para fazer o Post
 
 ```python
@@ -858,7 +924,15 @@ class MemberList(ListView):
 path('members/add/ajax', v.members_add_ajax, name='members_add_ajax'),
 ```
 
+---
+
+
 5. Criar View que salva os dados
+
+...
+
+
+---
 
 
 
@@ -899,6 +973,9 @@ $.ajaxSetup({
 });
 ```
 
+---
+
+
 ```js
 <script>
   $('#save').on('click', function(e) {
@@ -922,6 +999,9 @@ $.ajaxSetup({
   });
 </script>
 ```
+
+---
+
 
 
 7. Retornar os novos dados na tabela
@@ -949,6 +1029,9 @@ complete: function() {
 }
 ```
 
+
+
+---
 
 
 
