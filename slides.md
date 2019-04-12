@@ -74,7 +74,7 @@ img kickout
 
 ### 1 - Admin - Login
 
-login.png
+![login.png](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/login.png)
 
 ```html
 <form action="/admin/login/?next=/admin/" method="post" id="login-form"><input type="hidden" name="csrfmiddlewaretoken" value="X9I8a87GjMYBWo5OBwHc5VjkIuOdkgjDZBIOCQnTFrxov9orGE7jyvxlDGZQTy1d">
@@ -111,7 +111,7 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 ### 3 - Admin - Auth User Add
 
-auth_user_add.png
+![auth_user_add.png](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/auth_user_add.png)
 
 ```html
 <form action="" method="post" id="user_form" novalidate>
@@ -206,7 +206,7 @@ https://github.com/django/django/blob/master/django/contrib/admin/templates/admi
 
 ### 4 - Admin - TabularInline
 
-admin_tabular_inline.png
+![admin_tabular_inline.png](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/admin_tabular_inline.png)
 
 
 
