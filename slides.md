@@ -857,7 +857,19 @@ path('members/add/ajax', v.members_add_ajax, name='members_add_ajax'),
 
 5. Criar View que salva os dados
 
-...
+```python
+def members_add_ajax(request):
+    data = request.POST
+    # import ipdb; ipdb.set_trace()
+    name = data.get('name')
+    instrument = data.get('instrument')
+    band_pk = data.get('band')
+    band = Band.objects.get(pk=band_pk)
+
+    member = Member.objects.create(name=name, instrument=instrument, band=band)
+    data = [member.to_dict_json()]
+    return JsonResponse({'data': data})
+```
 
 
 ---
