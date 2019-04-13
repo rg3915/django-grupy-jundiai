@@ -2,11 +2,51 @@
 
 ---
 
-<img src="https://i.imgflip.com/2uebpf.jpg" alt="" height="500px">
+<img src="https://i.imgflip.com/2uebpf.jpg" alt="" height="540px">
 
 ---
 
 Django foi lançado em 2005 por Lawrence Journal-World
+
+---
+
+Site não...
+
+Sistemas online
+
+- acesso ao banco de dados
+- podemos criar api e acessar de várias formas diferentes, Android por exemplo.
+
+---
+
+### Esboço Tutorial para
+
+pythonclub.com.br
+
+https://github.com/rg3915/django2-pythonclub/blob/master/esboco.md
+
+---
+
+### Slides
+
+https://github.com/rg3915/django-grupy-jundiai/blob/master/slides.md
+
+---
+
+# 2013
+
+---
+
+* Django==1.6.6
+
+https://github.com/rg3915/django
+
+---
+
+* Slides sem Form
+
+![neve](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/strange_neve.gif)
+
 
 ---
 @title[Customize Slide Layout]
