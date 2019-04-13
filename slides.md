@@ -1112,3 +1112,9 @@ O template é members_vue.html
 </script>
 ```
 
+---
+
+![thor](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/thor.gif)
+
+Obrigado!
+
