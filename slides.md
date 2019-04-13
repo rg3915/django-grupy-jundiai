@@ -705,7 +705,7 @@ Implementar, mostrar rodando
 
 "Não"
 
-img Dr. Strange kickout
+![img Dr. Strange kickout]()
 
 ---
 
