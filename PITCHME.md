@@ -5,6 +5,10 @@
 <img src="https://i.imgflip.com/2uebpf.jpg" alt="" height="500px">
 
 ---
+
+Django foi lançado em 2005 por Lawrence Journal-World
+
+---
 @title[Customize Slide Layout]
 
 @snap[west span-50]
