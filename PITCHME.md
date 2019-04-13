@@ -1,10 +1,8 @@
-# Let's Get Started
+# Várias maneiras de fazer um formulário no Django
 
 ---
 
-## Add Some Slide Candy
-
-![](assets/img/presentation.png)
+![](https://i.imgflip.com/2uebpf.jpg)
 
 ---
 @title[Customize Slide Layout]
