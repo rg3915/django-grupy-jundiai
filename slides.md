@@ -45,7 +45,7 @@ https://github.com/rg3915/django
 
 * Slides sem Form
 
-![neve](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/neve.gif)
+![neve](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/strange_neve.gif)
 
 
 ---
@@ -53,6 +53,10 @@ https://github.com/rg3915/django
 Você leu a documentação?
 
 ![img Dr. Strange kickout](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/kickout.gif)
+
+---
+
+docs.djangoproject.com
 
 
 ---
