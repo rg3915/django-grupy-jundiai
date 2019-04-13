@@ -333,7 +333,7 @@ https://docs.djangoproject.com/en/2.2/topics/forms/#building-a-form
 #views.py
 def my_send_email(request):
     email = request.POST
-    import ipdb; ipdb.set_trace()
+    # import ipdb; ipdb.set_trace()
     subject = email.get('subject')
     message = email.get('message')
     sender = email.get('sender')
@@ -724,7 +724,7 @@ Implementar, mostrar rodando
 
 Comecei a estudar...
 
---
+---
 
 ![dr_strange_failure](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/dr_strange_failure.gif)
 
@@ -742,7 +742,7 @@ Agora eu faço um POST via Ajax!
 6. Fazer o Post via Ajax
 7. Retornar os novos dados na tabela
 
---
+---
 
 1. Requer jQuery
 
