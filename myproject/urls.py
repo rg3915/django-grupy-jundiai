@@ -33,6 +33,7 @@ urlpatterns = [
     path('memberform/', v.MemberCreate.as_view(), name='member_form'),
     path('members_vue/', v.members_vue, name='members_vue'),
 
+    path('my_send_email/', v.my_send_email, name='my_send_email'),
     path('contact/', v.band_contact, name='contact'),
     path('contact/as_p/', v.band_contact_as_p, name='contact_as_p'),
     path('contact/as_table/', v.band_contact_as_table, name='contact_as_table'),

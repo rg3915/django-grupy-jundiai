@@ -22,6 +22,17 @@ def band_list(request):
     return render(request, 'bands/band_list.html', {'bands': bands})
 
 
+def my_send_email(request):
+    email = request.POST
+    # import ipdb; ipdb.set_trace()
+    subject = email.get('subject')
+    message = email.get('message')
+    sender = email.get('sender')
+    cc_myself = email.get('cc_myself')
+    # enviar email
+    pass
+
+
 def band_contact(request):
     """ A example of form """
     if request.method == 'POST':

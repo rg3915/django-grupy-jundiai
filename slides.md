@@ -31,6 +31,10 @@ Slides
 
 https://github.com/rg3915/django-grupy-jundiai/blob/master/slides.md
 
+Versão final
+
+https://slides.com/regissilva/django-grupy-jundiai
+
 ---
 
 2013
@@ -697,9 +701,13 @@ http://felipefrizzo.github.io/post/form-inline/
 
 https://github.com/rg3915/vendas
 
+rg-vendas.herokuapp.com
+
 ---
 
-### 19 - django-registration-redux https://django-registration-redux.readthedocs.io/en/latest/
+### 19 - django-registration-redux
+
+https://django-registration-redux.readthedocs.io/en/latest/
 
 ![registration](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/SgFlV.jpg)
 
@@ -1036,6 +1044,7 @@ path('members_vue/', v.members_vue, name='members_vue'),
 O template é members_vue.html
 
 ```html
+# members_vue.html
 {% extends "base.html" %}
 
 {% block title %}
