@@ -45,13 +45,14 @@ https://github.com/rg3915/django
 
 * Slides sem Form
 
-img Dr. Strange sem treinamento
+![neve](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/neve.gif)
+
 
 ---
 
 Você leu a documentação?
 
-img kickout
+![img Dr. Strange kickout](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/kickout.gif)
 
 
 ---
@@ -684,7 +685,13 @@ implementar
 
 ### 18 - inline_formset_factory
 
-    pegar links + github
+Felipe Frizzo
+
+http://felipefrizzo.github.io/post/form-inline-cbv/
+
+http://felipefrizzo.github.io/post/form-inline/
+
+https://github.com/rg3915/vendas
 
 ---
 
@@ -711,9 +718,15 @@ Implementar, mostrar rodando
 
 ![thor](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/strange_book.gif)
 
+Comecei a estudar...
+
 --
 
 ![dr_strange_failure](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/dr_strange_failure.gif)
+
+Agora eu faço um POST via Ajax!
+
+---
 
 ### 20 - POST via Ajax (Live Code)
 
