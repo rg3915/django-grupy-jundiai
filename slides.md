@@ -701,11 +701,11 @@ Implementar, mostrar rodando
 
 ---
 
-"Você sabe fazer POST via Ajax?"
+![ajax](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/strange_ajax.jpg)
 
-"Não"
+---
 
-![img Dr. Strange kickout]()
+![img Dr. Strange kickout](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/kickout.gif)
 
 ---
 
