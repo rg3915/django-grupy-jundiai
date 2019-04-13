@@ -1,8 +1,8 @@
-# Várias maneiras de fazer um formulário no Django
+## Várias maneiras de fazer um formulário no Django
 
 ---
 
-![](https://i.imgflip.com/2uebpf.jpg)
+<img src="https://i.imgflip.com/2uebpf.jpg" alt="" height="500px">
 
 ---
 @title[Customize Slide Layout]
