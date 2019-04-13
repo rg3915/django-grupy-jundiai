@@ -25,11 +25,6 @@ def band_list(request):
 def my_send_email(request):
     email = request.POST
     # import ipdb; ipdb.set_trace()
-    subject = email.get('subject')
-    message = email.get('message')
-    sender = email.get('sender')
-    cc_myself = email.get('cc_myself')
-    # enviar email
     pass
 
 
@@ -129,21 +124,12 @@ def members_vue(request):
 
 def members_add_ajax(request):
     data = request.POST
-    # import ipdb; ipdb.set_trace()
-    name = data.get('name')
-    instrument = data.get('instrument')
-    band_pk = data.get('band')
-    band = Band.objects.get(pk=band_pk)
-
-    member = Member.objects.create(name=name, instrument=instrument, band=band)
-    data = [member.to_dict_json()]
-    return JsonResponse({'data': data})
+    import ipdb
+    ipdb.set_trace()
 
 
 def members_json(request):
-    members = Member.objects.all()
-    data = [item.to_dict_json() for item in members]
-    return JsonResponse({'data': data})
+    pass
 
 
 class MemberCreate(CreateView):
