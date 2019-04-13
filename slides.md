@@ -56,7 +56,7 @@ Você leu a documentação?
 
 ---
 
-docs.djangoproject.com
+[docs.djangoproject.com](https://docs.djangoproject.com/en/2.2/)
 
 
 ---
@@ -313,7 +313,7 @@ http://jinja.pocoo.org/
 
 Live Code
 
-img dr. strange primeiro teste
+![t](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/dr_strange_failure.gif)
 
 ---
 
