@@ -4,6 +4,10 @@ Palestra apresentada no Grupy Jundiai em Abril de 2019.
 
 ---
 
+![]()
+
+---
+
 Django foi lançado em 2005 por Lawrence Journal-World
 
 ---
