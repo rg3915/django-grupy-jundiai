@@ -4,7 +4,7 @@ Palestra apresentada no Grupy Jundiai em Abril de 2019.
 
 ---
 
-![]()
+![1400605](https://raw.githubusercontent.com/rg3915/django-grupy-jundiai/master/img/1400605.jpg)
 
 ---
 
